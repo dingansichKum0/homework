@@ -1,0 +1,32 @@
+{
+  "name": "ggmap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "webpack-dev-server --watch --port 3001 --mode development --hot",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@material-ui/styles": "^4.11.4",
+    "react": "^16.9.9",
+    "react-dom": "^16.9.0",
+    "shapefile": "^0.6.6"
+  },
+  "devDependencies": {
+    "@types/google.maps": "^3.44.4",
+    "@types/react": "^16.9.0",
+    "@types/shapefile": "^0.6.0",
+    "css-loader": "^5.2.4",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^2.0.0",
+    "ts-loader": "^4.4.2",
+    "tsconfig-paths-webpack-plugin": "^3.2.0",
+    "typescript": "^3.8.2",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
+  }
+}

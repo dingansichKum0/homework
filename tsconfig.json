@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "jsx": "react",
+    "lib": ["es2017", "dom", "esnext"],
+    "sourceMap": true,
+    "target": "es6",
+    "noUnusedLocals": true,
+    "paths": {
+      "@temp/*": ["./src/*"],
+      "@hooks/*": ["./src/App/hooks/*"],
+      "@services/*": ["./src/App/services/*"],
+      "@components/*": ["./src/App/components/*"],
+      "@interfaces/*": ["./src/App/interfaces/*"]
+    },
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "types": ["google.maps"]
+  },
+  "exclude": ["node_modules"]
+}

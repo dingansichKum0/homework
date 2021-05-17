@@ -1,4 +1,4 @@
 export interface IShpResult {
-  coordinates: [number, number][][];
+  coordinates: [number, number][][] | [number, number][][][];
   type: "MultiPolygon" | "Polygon";
 }

@@ -51,48 +51,41 @@ const MapRef: React.RefForwardingComponent<IMapHandle, Props> = ({}, ref) => {
       triangleCoordsRef.current.push(value);
     },
     file: (value) => {
+      const drawPolygon = (paths: IMarker[]) => {
+        const polygonInstance = new google.maps.Polygon({
+          paths,
+          strokeColor: "#FF0000",
+          strokeOpacity: 0.8,
+          strokeWeight: 2,
+          fillColor: "#FF0000",
+          fillOpacity: 0.35,
+        });
+
+        polygonInstance.setMap(mapInstanceRef.current);
+      };
+
       if (value.type === "MultiPolygon") {
         for (let i = 0; i < value.coordinates.length; i++) {
           for (let j = 0; j < value.coordinates[i].length; j++) {
-            value.coordinates[i][j] = value.coordinates[i][j].map((j) => ({
-              lat: j[1],
-              lng: j[0],
-            })) as any;
+            value.coordinates[i][j] = (value.coordinates[i][j] as any).map(
+              (j) => ({
+                lat: j[1],
+                lng: j[0],
+              })
+            );
           }
         }
         value.coordinates.forEach((i) => {
-          i.forEach((j) => {
-            const polygonInstance = new google.maps.Polygon({
-              paths: j,
-              strokeColor: "#FF0000",
-              strokeOpacity: 0.8,
-              strokeWeight: 2,
-              fillColor: "#FF0000",
-              fillOpacity: 0.35,
-            });
-
-            polygonInstance.setMap(mapInstanceRef.current);
-          });
+          i.forEach((j) => drawPolygon(j as IMarker[]));
         });
       } else {
         for (let i = 0; i < value.coordinates.length; i++) {
-          value.coordinates[i] = value.coordinates[i].map((j) => ({
+          value.coordinates[i] = (value.coordinates[i] as any).map((j) => ({
             lat: j[1],
             lng: j[0],
           })) as any;
         }
-        value.coordinates.forEach((i) => {
-          const polygonInstance = new google.maps.Polygon({
-            paths: i,
-            strokeColor: "#FF0000",
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            fillColor: "#FF0000",
-            fillOpacity: 0.35,
-          });
-
-          polygonInstance.setMap(mapInstanceRef.current);
-        });
+        value.coordinates.forEach((i) => drawPolygon(i as IMarker[]));
       }
     },
   }));

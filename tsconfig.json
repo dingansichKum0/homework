@@ -1,23 +1,46 @@
 {
+  "compileOnSave": true,
   "compilerOptions": {
     "baseUrl": ".",
-    "esModuleInterop": true,
-    "module": "commonjs",
-    "jsx": "react",
-    "lib": ["es2017", "dom", "esnext"],
-    "sourceMap": true,
-    "target": "es6",
-    "noUnusedLocals": true,
+    "rootDir": ".",
+    "outDir": ".tmp",
     "paths": {
-      "@temp/*": ["./src/*"],
-      "@hooks/*": ["./src/App/hooks/*"],
-      "@services/*": ["./src/App/services/*"],
-      "@components/*": ["./src/App/components/*"],
-      "@interfaces/*": ["./src/App/interfaces/*"]
+      "@babel/types": ["node_modules/@babel/types"],
+      "*": ["__types__/*", "*/index.ts", "*"],
+      "src/*": ["src/*"]
     },
     "resolveJsonModule": true,
+    "noImplicitAny": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "lib": ["dom", "esnext", "webworker"],
+    "module": "esnext",
+    "target": "es2015",
+    "pretty": true,
+    "strict": true,
+
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
-    "types": ["google.maps"]
+    "removeComments": false,
+    "declaration": true,
+    "noEmitOnError": false,
+    "emitDeclarationOnly": true,
+    "sourceMap": false,
+    "allowJs": false,
+    "strictFunctionTypes": true,
+    "preserveConstEnums": true,
+    "isolatedModules": true
   },
-  "exclude": ["node_modules"]
+  "exclude": [".tmp/*", "dist/*", "node_modules/*"],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  }
 }

@@ -1,16 +1,2 @@
-.*
-!.dockerignore
-!.storybook
-!.circle
-!.eslintrc
-!.gitignore
-!.github
-!.babelrc
-!.plop
-!.jest
-!.linguirc
-!.prettierrc
-!.prettierignore
-!.tx
-dist
+build/
 node_modules
